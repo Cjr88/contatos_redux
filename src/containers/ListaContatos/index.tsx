@@ -28,6 +28,7 @@ const ListaContato = () => {
               email={c.email}
               descricao={c.descricao}
               id={c.id}
+              telefone={c.telefone}
             />
           </li>
         ))}

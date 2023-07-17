@@ -11,7 +11,8 @@ const Contato = ({
   titulo,
   id,
   email,
-  descricao: descricaoOriginal
+  descricao: descricaoOriginal,
+  telefone
 }: Props) => {
   const dispatch = useDispatch()
   const [estaEditando, setEstaEditando] = useState(false)
@@ -27,47 +28,52 @@ const Contato = ({
     setDescricao(descricaoOriginal)
   }
   return (
-    <S.Card>
-      <S.Title>{titulo}</S.Title>
-      <Descripton
-        disabled={!estaEditando}
-        value={descricao}
-        onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
-          setDescricao(e.target.value)
-        }
-      />
-      <S.ActionBar>
-        {estaEditando ? (
-          <>
-            <BotaoSalvar
-              onClick={() => {
-                dispatch(
-                  editar({
-                    titulo,
-                    email,
-                    id,
-                    descricao: ''
-                  })
-                )
-                setEstaEditando(false)
-              }}
-            >
-              Salvar
-            </BotaoSalvar>
-            <S.BotaoEditaCancela onClick={cancelaEdicao}>
-              Cancelar
-            </S.BotaoEditaCancela>
-          </>
-        ) : (
-          <>
-            <S.Button onClick={() => setEstaEditando(true)}>Editar</S.Button>
-            <S.BotaoEditaCancela onClick={() => dispatch(remover(id))}>
-              Remover
-            </S.BotaoEditaCancela>
-          </>
-        )}
-      </S.ActionBar>
-    </S.Card>
+    <S.Main>
+      <S.Card>
+        <S.Title>{titulo}</S.Title>
+        <S.Title>{email}</S.Title>
+        <S.Title>{telefone}</S.Title>
+        <Descripton
+          disabled={!estaEditando}
+          value={descricao}
+          onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
+            setDescricao(e.target.value)
+          }
+        />
+        <S.ActionBar>
+          {estaEditando ? (
+            <>
+              <BotaoSalvar
+                onClick={() => {
+                  dispatch(
+                    editar({
+                      titulo,
+                      email,
+                      id,
+                      descricao: '',
+                      telefone
+                    })
+                  )
+                  setEstaEditando(false)
+                }}
+              >
+                Salvar
+              </BotaoSalvar>
+              <S.BotaoEditaCancela onClick={cancelaEdicao}>
+                Cancelar
+              </S.BotaoEditaCancela>
+            </>
+          ) : (
+            <>
+              <S.Button onClick={() => setEstaEditando(true)}>Editar</S.Button>
+              <S.BotaoEditaCancela onClick={() => dispatch(remover(id))}>
+                Remover
+              </S.BotaoEditaCancela>
+            </>
+          )}
+        </S.ActionBar>
+      </S.Card>
+    </S.Main>
   )
 }
 

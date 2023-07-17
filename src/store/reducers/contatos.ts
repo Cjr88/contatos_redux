@@ -10,26 +10,30 @@ const initialState: ContatosState = {
     {
       titulo: 'Carlos Jr',
       email: 'carlosjr@gmail.com',
-      descricao: '888394051',
-      id: 1
+      descricao: '',
+      id: 1,
+      telefone: 99984523
     },
     {
       titulo: 'Jose',
       email: 'josepereirea@live.com',
-      descricao: '999938491',
-      id: 2
+      descricao: '',
+      id: 2,
+      telefone: 499978977
     },
     {
-      titulo: 'Ferndindando',
+      titulo: 'Ferdinando',
       email: 'ferdinando_fr@gmail.com',
-      descricao: '122344567',
-      id: 3
+      descricao: '',
+      id: 3,
+      telefone: 597977785
     },
     {
       titulo: 'Tiao',
       email: 'tiao_carreiro@hotmail.com',
-      descricao: '49586000',
-      id: 4
+      descricao: '',
+      id: 4,
+      telefone: 46887744
     }
   ]
 }
